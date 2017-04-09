@@ -20,7 +20,7 @@
 9 verbose stack     at maybeClose (internal/child_process.js:827:16)
 9 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)
 10 verbose pkgid dp_cert_manager@0.0.0
-11 verbose cwd C:\Users\Eaivpc\Desktop\dp_cert_manager
+11 verbose cwd C:\Users\Eaivpc\Desktop\DataPower_Cert_Manager
 12 error Windows_NT 10.0.10586
 13 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "start"
 14 error node v4.4.5

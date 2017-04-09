@@ -26,23 +26,27 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 
-
-// app.use(orm.express("mysql://"+process.env.DB_USER+":"+process.env.DB_PASS+"@"+process.env.DB_HOST+"/"+process.env.DB_NAME, {
-// 	define: function (db, models, next) {
-// 		models.person = db.define("person", { });
-// 		next();
-// 	}
-// }));
-var Test = require('./app/model/test');
-// require('./app/model/test');
-console.log(Test);
-Test.Test.find({id : "1" },function(err, test){
-  // SQL: "SELECT * FROM person WHERE surname = 'Doe'"
-  if (err) throw err;
-
-  // console.log("People found: %d", test1.);
-  console.log("Id ::  %s, data ::  %s", test[0].id, test[0].data);
+// Database
+var orm = require("orm");
+orm.connect("mysql://"+process.env.DB_USER+":"+process.env.DB_PASS+"@"+process.env.DB_HOST+"/"+process.env.DB_NAME, function(err, db) {
+    if (err) throw err;
+    db.load('./app/model/test.js', function(err) {
+        if (err) throw err;
+        var test = db.models.test;
+        test.find({
+            id: 1
+        }, function(err, test) { //VIEW BY ID
+            if (err) {
+                console.log(err);
+                return;
+            }
+            console.log("---------Fetching Records from database-----------------------------");
+            console.log(JSON.stringify(test));
+        });
+    });
 });
+orm.close();
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
