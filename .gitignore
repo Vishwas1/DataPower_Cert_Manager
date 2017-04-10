@@ -1,6 +1,23 @@
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
+.env
+
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+
+npm-debug.log
+node_modules
+
+
+public/dist
+.vscode/launch.json
 
 # Folder config file
 Desktop.ini
