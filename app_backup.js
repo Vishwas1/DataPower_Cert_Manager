@@ -5,10 +5,9 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-// var dbcon = require('./config/database');
+var dbcon = require('./config/database');
 var routes = require('./routes/index');
 var users = require('./routes/users');
-// var orm = require('orm');
 var app = express();
 
 // view engine setup
@@ -26,49 +25,30 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 
-//Database queries
-var db  = require('./config/dbconfig');
-// console.log('getting connecction object from export ..........................');
-// var sss  = require('./config/dbconfig')(db);
-// // connection(db)
-//   console.log(sss);
-// }
+// Database
+// var gblDBObject = {};
 
-db.on('connect', function(err) {
-  if (err) return console.error('Connection error: ' + err);
-  // doSomething()...
-  db.load('./app/model/test.js', function(err) {
-      if (err) throw err;
-      var test = db.models.test;
-      test.find({
-          id: 1
-      }, function(err, test) { //VIEW BY ID
-          if (err) {
-              console.log(err);
-              return;
-          }
-          console.log("---------Fetching Records from database for model test-----------------------------");
-          console.log(JSON.stringify(test));
-      });
-  });
+// console.log(gblDBObject);
+// var orm = require("orm");
+//
+ var DBObject =require('./config/database.js');
+console.log(DBObject());
+// gblDBObject.load('./app/model/test.js', function(err) {
+//     if (err) throw err;
+//     var test = gblDBObject.models.test;
+//     test.find({
+//         id: 1
+//     }, function(err, test) { //VIEW BY ID
+//         if (err) {
+//             console.log(err);
+//             return;
+//         }
+//         console.log("---------Fetching Records from database-----------------------------");
+//         console.log(JSON.stringify(test));
+//     });
+// });
 
-  db.load('./app/model/person.js', function(err) {
-      if (err) throw err;
-      var person = db.models.person;
-      person.find({
-          id: 1
-      }, function(err, person) { //VIEW BY ID
-          if (err) {
-              console.log(err);
-              return;
-          }
-          console.log("---------Fetching Records from database for model person-----------------------------");
-          console.log(JSON.stringify(person));
-      });
-  });
-  db.close();
-});
-
+// orm.close();
 
 
 // catch 404 and forward to error handler
