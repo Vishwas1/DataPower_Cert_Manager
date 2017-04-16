@@ -5,8 +5,10 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var dbcon = require('./config/database');
+var dbcon  = require('./config/database');
 var routes = require('./routes/index');
+var models = require('./app/model/');
+
 // var users = require('./routes/users');
 // var orm = require('orm');
 // var app = express();

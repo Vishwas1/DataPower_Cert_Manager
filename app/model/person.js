@@ -1,26 +1,3 @@
-//
-//
-//
-// var personObj  = {
-//   name      : String,
-//   surname   : String,
-//   age       : Number, // FLOAT
-//   male      : Boolean
-//   // continent : [ "Europe", "America", "Asia", "Africa", "Australia", "Antartica" ], // ENUM type
-//   // photo     : Buffer,// BLOB/BINARY
-//   // data      : Object // JSON encoded
-// };
-//
-// module.exports = personObj ;
-
-// 
-// module.exports = function (orm, db) {
-//   var Person = db.define('person', {
-//     body      : { type: 'text', required: true },
-//     createdAt : { type: 'date', required: true, time: true }});
-//
-//
-//   };
 var orm = require("orm");
 
 orm.connect("mysql://username:password@host/database", function (err, db) {

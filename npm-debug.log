@@ -10,7 +10,7 @@
 7 verbose unsafe-perm in lifecycle true
 8 info dp_cert_manager@0.0.0 Failed to exec start script
 9 error dp_cert_manager@0.0.0 start: `node ./bin/www`
-9 error Exit status 1
+9 error Exit status 8
 10 error Failed at the dp_cert_manager@0.0.0 start script.
 10 error This is most likely a problem with the dp_cert_manager package,
 10 error not with npm itself.
