@@ -28,30 +28,11 @@ app.use('/users', users);
 
 //Database queries
 var db  = require('./config/dbconfig');
-// console.log('getting connecction object from export ..........................');
-// var sss  = require('./config/dbconfig')(db);
-// // connection(db)
-//   console.log(sss);
-// }
 
+
+//Below code can be put into person controller
 db.on('connect', function(err) {
-  if (err) return console.error('Connection error: ' + err);
-  // doSomething()...
-  db.load('./app/model/test.js', function(err) {
-      if (err) throw err;
-      var test = db.models.test;
-      test.find({
-          id: 1
-      }, function(err, test) { //VIEW BY ID
-          if (err) {
-              console.log(err);
-              return;
-          }
-          console.log("---------Fetching Records from database for model test-----------------------------");
-          console.log(JSON.stringify(test));
-      });
-  });
-
+  if(err) return console.error('Connection error:  '+ err);
   db.load('./app/model/person.js', function(err) {
       if (err) throw err;
       var person = db.models.person;
@@ -66,10 +47,45 @@ db.on('connect', function(err) {
           console.log(JSON.stringify(person));
       });
   });
+
+  db.load('./app/model/test.js', function(err) {
+      if (err) throw err;
+      var test = db.models.test;
+      test.find({
+          id: 1
+      }, function(err, test) { //VIEW BY ID
+          if (err) {
+              console.log(err);
+              return;
+          }
+          console.log("---------Fetching Records from database for model test-----------------------------");
+          console.log(JSON.stringify(test));
+      });
+  });
   db.close();
 });
 
 
+//Below code can be put into test controller
+// db.on('connect', function(err) {
+//   if (err) return console.error('Connection error: ' + err);
+//   // doSomething()...
+//   db.load('./app/model/test.js', function(err) {
+//       if (err) throw err;
+//       var test = db.models.test;
+//       test.find({
+//           id: 1
+//       }, function(err, test) { //VIEW BY ID
+//           if (err) {
+//               console.log(err);
+//               return;
+//           }
+//           console.log("---------Fetching Records from database for model test-----------------------------");
+//           console.log(JSON.stringify(test));
+//       });
+//   });
+//   db.close();
+// });
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
