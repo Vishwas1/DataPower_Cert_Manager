@@ -7,15 +7,10 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var dbcon = require('./config/database');
 var routes = require('./routes/index');
-// var users = require('./routes/users');
-// var orm = require('orm');
-// var app = express();
-
-// view engine setup
 var app = express();
 
 routes(app);
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, './app/views'));
 app.set('view engine', 'jade');
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -31,9 +26,6 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
-
-
-// var database = require('./database');
 
 app.use(function (req, res, next) {
   dbcon(function (err, db) {
@@ -71,7 +63,5 @@ app.use(function(err, req, res, next) {
 });
 
 // catch 404 and forward to error handler
-
-
 
 module.exports = app;
