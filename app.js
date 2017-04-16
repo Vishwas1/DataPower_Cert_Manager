@@ -13,7 +13,7 @@ var routes = require('./routes/index');
 
 // view engine setup
 var app = express();
- 
+
 routes(app);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -30,6 +30,20 @@ app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
+});
+
+
+// var database = require('./database');
+
+app.use(function (req, res, next) {
+  dbcon(function (err, db) {
+    if (err) return res.send(500, "cannot connect ot database");
+
+    req.db = db;
+    req.models = db.models;
+
+    next();
+  });
 });
 
 // error handlers

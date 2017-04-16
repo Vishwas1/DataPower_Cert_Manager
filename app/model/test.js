@@ -1,8 +1,9 @@
-module.exports = function(db, callback) {
-  db.define("test", {
-    id      : Number,
+var connection = require('../.././config/database');
+var Test = connection.define('test',{
+    id      : {
+      type: Number,
+      primaryKey : true
+    },
     data   : String
   });
-
-    return callback();
-};
+module.exports = Test;
