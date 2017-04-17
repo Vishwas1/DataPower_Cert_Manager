@@ -3,17 +3,18 @@
 <head>
     <title>Integrating AngularJS with NodeJS</title>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular.js"></script>
-    <script src="javascripts/app.js" type="text/javascript"></script> <!-- not created yet -->
+    <script src="script/angapp.js" type="text/javascript"></script> <!-- not created yet -->
 </head>
 <body ng-app="angapp">
   <center><h1>Node with Angular Js integration</h1></center>
   <p>
     Html file with angular implementation!
   </p>
-  <div ng-controller="mainCtrl">
+  <div ng-controller="mainCtrl as mctrl">
     <!-- <ul ng-repeat="item in data">
        <li>Name: {{item.name}}, City: {{item.city}}</li>
     </ul> -->
+    <p>{{mctrl.someMessage}}</p>
   </div>
 </body>
 </html>

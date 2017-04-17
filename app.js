@@ -37,7 +37,7 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
-
+//
 // app.use(function (req, res, next) {
 //   dbcon(function (err, db) {
 //     if (err) return res.send(500, "cannot connect ot database");
