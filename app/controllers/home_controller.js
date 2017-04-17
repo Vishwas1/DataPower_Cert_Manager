@@ -17,6 +17,7 @@ module.exports = function (req, res, next) {
       }).then(function(data){
         console.log(data);
         res.render('index', { title: 'Express',name: 'Vikram',place1 : 'Dosut',fromDb : JSON.stringify(data) });
+        res.sendFile(path.join(__dirname, '../', 'views', 'index.html'));
       });
     })
     .catch(function (err) {

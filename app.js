@@ -9,34 +9,43 @@ var dbcon = require('./config/database');
 var routes = require('./routes/index');
 var app = express();
 
+/*Routes*/
 routes(app);
+
+/*Jade view egine*/
+// app.set('views', path.join(__dirname, './app/views'));
+// app.set('view engine', 'jade');
+
+/*HTML view engine */
 app.set('views', path.join(__dirname, './app/views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'ejs');
+app.engine('html',require('ejs').renderFile);
+
+/*Static folder where we put client side codes*/
+app.use(express.static(path.join(__dirname, 'public')));
+
+
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
   // app.listen('3000', function () {
   //   console.log( ("Listening on port 3000").green );
   // });
-
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
 
-app.use(function (req, res, next) {
-  dbcon(function (err, db) {
-    if (err) return res.send(500, "cannot connect ot database");
-
-    req.db = db;
-    req.models = db.models;
-
-    next();
-  });
-});
+// app.use(function (req, res, next) {
+//   dbcon(function (err, db) {
+//     if (err) return res.send(500, "cannot connect ot database");
+//     req.db = db;
+//     req.models = db.models;
+//     next();
+//   });
+// });
 
 // error handlers
 
