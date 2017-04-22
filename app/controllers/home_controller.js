@@ -8,16 +8,12 @@ module.exports = function (req, res, next) {
     .authenticate()
     .then(function(err) {
       console.log('Connection has been established successfully.');
-      // User.findById(1).then(function(users) {
-      //   console.log(users.get('data'));
-      //     // res.render('index', { title: 'Express',name: 'Vikram',place1 : 'Dosut',fromDb : JSON.stringify(test) });
-      // });
       Test.findAll({
         attributes: ['data']
       }).then(function(data){
         console.log(data);
-        res.render('index', { title: 'Express',name: 'Vikram',place1 : 'Dosut',fromDb : JSON.stringify(data) });
-        res.sendFile(path.join(__dirname, '../', 'views', 'index.html'));
+        // res.render('index', { title: 'Express',name: 'Vikram',place1 : 'Dosut',fromDb : JSON.stringify(data) });
+        res.json(data);
       });
     })
     .catch(function (err) {
