@@ -1,0 +1,56 @@
+<div class="input-group">
+    <input class="form-control" ng-model="searchText" placeholder="Search" type="search" ng-change="search()" /> <span class="input-group-addon">
+<span class="glyphicon glyphicon-search"></span>
+</span>
+</div>
+<table class="table  table-hover data-table myTable">
+    <thead>
+        <tr>
+            <th class="EmpId"> <a href="#" ng-click="sort('EmpId',$event)" >EmpId
+                 <span class="{{Header[0]}}"></span>
+                 </a>
+
+            </th>
+            <th class="name"> <a ng-click="sort('name')" href="#"> Name
+                 <span class="{{Header[1]}}"></span></a>
+            </th>
+            <th class="Email"> <a ng-click="sort('Email')" href="#"> Email
+             <span class="{{Header[2]}}"></span></a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in ItemsByPage[currentPage] | orderBy:columnToOrder:reverse">
+            <td>{{item.EmpId}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.Email}}</td>
+        </tr>
+    </tbody>
+</table>
+<ul class="pagination pagination-sm">
+    <li ng-class="{active:0}"><a href="#" ng-click="firstPage()">First</a>
+
+    </li>
+    <li ng-repeat="n in range(ItemsByPage.length)"> <a href="#" ng-click="setPage()" ng-bind="n+1">1</a>
+
+    </li>
+    <li><a href="#" ng-click="lastPage()">Last</a>
+
+    </li>
+</ul>
+<div class="row">
+    <div class="col-xs-3">
+        <input type="text" ng-model="newEmpId" class="form-control" placeholder="EmpId">
+    </div>
+    <div class="col-xs-3">
+        <input type="text" ng-model="newName" class="form-control" placeholder="Name">
+    </div>
+    <div class="col-xs-4">
+        <input type="email" ng-model="newEmail" class="form-control" placeholder="Email">
+    </div>
+    <div class="col-xs-1">
+        <button ng-click="add()" type="button" class="btn btn-primary"> <span class="glyphicon glyphicon-plus"></span>
+
+        </button>
+    </div>
+</div>
