@@ -1,0 +1,44 @@
+<div class="table-responsive-vertical md-whiteframe-z1">
+    <!-- TODO: Replace table to table component when https://github.com/angular/material/issues/796 will closed -->
+    <md-toolbar class="md-table-toolbar md-default">
+    <div class="md-toolbar-tools">
+        <span>Certificate List</span>
+    </div>
+    </md-toolbar>
+
+    <!-- exact table from live demo -->
+    <md-table-container>
+    <table md-table md-row-select multiple ng-model="selected" class="table table-hover table-bordered" >
+        <thead md-head md-order="query.order" md-on-reorder="vm.getItems()">
+        <tr md-row>
+            <th md-column md-numeric></th>
+            <th md-column md-numeric>CryptoObject </th>
+            <th md-column md-numeric>NotBefore</th>
+            <th md-column md-numeric>NotAfter</th>
+            <th md-column md-numeric>ExpiresInDays </th>
+            <th md-column md-numeric>Subject</th>
+            <th md-column md-numeric>Issuer </th>
+        </tr>
+        </thead>
+        <tbody md-body>
+        <tr md-row md-select="item" md-select-id="name" md-auto-select ng-repeat="item in vm.tableData">
+            <td md-cell><span class="glyphicon glyphicon-edit"></span></td>
+            <td md-cell>{{item.CryptoObject}}</td>
+            <td md-cell>{{item.NotBefore}}</td>
+            <td md-cell>{{item.NotAfter}}</td>
+            <td md-cell>{{item.ExpiresInDays}}</td>
+            <td md-cell>{{item.Subject}}</td>
+            <td md-cell>{{item.Issuer}}</td>
+            <!-- <td md-cell>
+                <md-progress-linear class="table-progress {{item.class}}"
+                    md-mode="determinate"
+                    value={{item.progress}}>
+                </md-progress-linear>
+            </td> -->
+        </tr>
+        </tbody>
+    </table>
+    </md-table-container>
+
+    <md-table-pagination md-limit="query.limit" md-limit-options="[5, 10, 15]" md-page="query.page" md-total="{{vm.totalItems}}" md-on-paginate="vm.getItems()" md-page-select></md-table-pagination>
+</div>
