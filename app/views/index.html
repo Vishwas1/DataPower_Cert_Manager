@@ -20,6 +20,7 @@
     <!-- build:css({.tmp/serve,src}) styles/app.css -->
     <!-- inject:css -->
     <link rel="stylesheet" href="app/index.css">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
     <!-- endinject -->
     <!-- endbuild -->
   </head>
@@ -54,6 +55,10 @@
 
     <!-- build:js({.tmp/serve,.tmp/partials,src}) scripts/app.js -->
     <!-- inject:js -->
+    <script src="http://ui-grid.info/release/ui-grid.js"></script>
+    <link rel="stylesheet" href="http://ui-grid.info/release/ui-grid.css" type="text/css">
+
+    <script src="http://underscorejs.org/underscore.js"></script>
     <script src="app/app.js"></script>
     <script src="app/components/services/TodoListService.js"></script>
     <script src="app/components/services/TableService.js"></script>
@@ -74,7 +79,7 @@
     <script src="app/controllers/MessagesController.js"></script>
     <script src="app/controllers/MemoryController.js"></script>
     <script src="app/controllers/MainController.js"></script>
-    <script src="app/controllers/DataTableController.js"></script>
+    <script src="app/controllers/CertListController.js"></script>
     <script src="app/controllers/ControlPanelController.js"></script>
     <script src="app/index.js"></script>
     <!-- endinject -->

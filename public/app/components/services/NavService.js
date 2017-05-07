@@ -19,15 +19,15 @@
         icon: 'person',
         sref: '.profile'
       },
+      // {
+      //   name: 'Table',
+      //   icon: 'view_module',
+      //   sref: '.table'
+      // },
       {
-        name: 'Table',
+        name: 'Cert List',
         icon: 'view_module',
-        sref: '.table'
-      },
-      {
-        name: 'Data Table',
-        icon: 'view_module',
-        sref: '.data-table'
+        sref: '.cert-list'
       }
     ];
 

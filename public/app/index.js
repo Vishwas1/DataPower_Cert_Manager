@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('angularMaterialAdmin', ['ngAnimate', 'ngCookies',
-  'ngSanitize', 'ui.router', 'ngMaterial', 'nvd3', 'app' , 'md.data.table'])
+  'ngSanitize', 'ui.router', 'ngMaterial', 'nvd3', 'app' , 'md.data.table','ui.grid', 'ui.grid.pagination'])
 
   .config(function ($stateProvider, $urlRouterProvider, $mdThemingProvider,
                     $mdIconProvider) {
@@ -29,22 +29,22 @@ angular.module('angularMaterialAdmin', ['ngAnimate', 'ngCookies',
           title: 'Profile'
         }
       })
-      .state('home.table', {
-        url: '/table',
-        controller: 'TableController',
+      // .state('home.table', {
+      //   url: '/table',
+      //   controller: 'TableController',
+      //   controllerAs: 'vm',
+      //   templateUrl: 'app/views/table.html',
+      //   data: {
+      //     title: 'Table'
+      //   }
+      // })
+      .state('home.cert-list', {
+        url: '/cert-list',
+        controller: 'CertListController',
         controllerAs: 'vm',
-        templateUrl: 'app/views/table.html',
+        templateUrl: 'app/views/cert-list.html',
         data: {
-          title: 'Table'
-        }
-      })
-      .state('home.data-table', {
-        url: '/data-table',
-        controller: 'DataTableController',
-        controllerAs: 'vm',
-        templateUrl: 'app/views/data-table.html',
-        data: {
-          title: 'Table'
+          title: 'Certificate List'
         }
       });
 
@@ -52,7 +52,7 @@ angular.module('angularMaterialAdmin', ['ngAnimate', 'ngCookies',
 
     $mdThemingProvider
       .theme('default')
-        .primaryPalette('grey', {
+        .primaryPalette('red', {
           'default': '600'
         })
         .accentPalette('teal', {

@@ -2,11 +2,11 @@
 
   angular
     .module('app')
-    .controller('DataTableController', [
+    .controller('CertListController', [
       'tableService',
       '$scope',
       TableController
-      
+
     ]);
 
   function TableController(tableService , $scope) {
@@ -26,38 +26,42 @@
 
     $scope.render = function (T) {
       return T;
-    }
+    };
     var lastQuery = null;
-    vm.getItems = function () { 
+    vm.getItems = function () {
       /**
        * I don't know why this function is being called too many times,
        * it supposed to call once per pagination, so the next 3 lines are only to avoid
-       * multiple requests. 
+       * multiple requests.
        */
       var query = JSON.stringify($scope.query);
       if (query == lastQuery) return;
       lastQuery = query;
       GetItemsData($scope.query);
-      
-    }
+
+
+      // vm.tableData =  tableService.
+    };
 
     function GetItemsData(query) {
       tableService
       .loadByPagination(query)
-      .then(function(tableData) { 
-        vm.tableData =  tableData.items;
+      .then(function(tableData) {
+        debugger;
+        console.log(tableData.items);
+        vm.tableData =  tableData;
         // Represents the count of database count of records, not items array!
         vm.totalItems = tableData.count;
-        
+
       });
 
-    } 
-    
+    }
+
     GetItemsData($scope.query);
-    
 
 
-    
+
+
   }
 
 })();

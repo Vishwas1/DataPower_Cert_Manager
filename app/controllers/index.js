@@ -1,5 +1,6 @@
 module.exports = {
+<<<<<<< HEAD
   homeDb     : require('./home_controller'),
   home     : require('./home'),
-  certificate:require('./cert_controller')
+  getCerts : require('./certLst_controller')
 };
