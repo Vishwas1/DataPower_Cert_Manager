@@ -5,10 +5,10 @@ module.exports = function (req, res, next) {
   dbconnection
     .authenticate()
     .then(function(err) {
-      console.log('Connection has been established successfully.');
-      console.log('==========================Request Object =======================================================');
-      console.log(req);
-      console.log('================================================================================================');
+      // console.log('Connection has been established successfully.');
+      // console.log('==========================Request Object =======================================================');
+      // console.log(req);
+      // console.log('================================================================================================');
       CertificateList_Model.findAll().then(function(data){
         // console.log(data);
         // res.render('index', { title: 'Express',name: 'Vikram',place1 : 'Dosut',fromDb : JSON.stringify(data) });
