@@ -1,0 +1,73 @@
+<div ng-controller="editCertPopupController" style="padding: 5px;">
+  <div><center><h3>Update Certificate </h3></center><hr></div>
+  <div>
+    <form name="editCertForm" novalidate  ng-submit="editCertForm.$valid && updateCertificate()">
+        <!-- CryptoObject field -->
+        <div class="form-group">
+          <div class="col-sm-12">
+            <label>Crypto Object</label>
+            <textarea type="text" name="CryptoObject" class="form-control" ng-model="CryptoObject" rows="4" required></textarea>
+            <!-- ngMessages goes here -->
+            <div class="help-block" ng-messages="editCertForm.CryptoObject.$error" ng-if="editCertForm.CryptoObject.$dirty">
+               <p ng-message="required">Your name is required.</p>
+            </div>
+          </div>
+        </div>
+        <!-- NotBefore,NotAfter field -->
+        <div class="form-group">
+            <div class="col-sm-6">
+              <label>Not Before</label>
+              <input type="text" name="NotBefore" class="form-control" ng-model="NotBefore" required>
+              <!-- ngMessages goes here -->
+              <div class="help-block" ng-messages="editCertForm.NotBefore.$error" ng-if="editCertForm.NotBefore.$dirty">
+                 <p ng-message="required">NotBefore is required.</p>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <label>Not After</label>
+              <input type="text" name="NotAfter" class="form-control" ng-model="NotAfter" required>
+              <!-- ngMessages goes here -->
+              <div class="help-block" ng-messages="editCertForm.NotAfter.$error" ng-if="editCertForm.NotAfter.$dirty">
+                 <p ng-message="required">NotAfter is required.</p>
+              </div>
+            </div>
+        </div>
+        <!-- ExpiresInDays,Issuer field -->
+        <div class="form-group">
+          <div class="col-sm-6">
+            <label>Expires In Days</label>
+            <input type="text" name="ExpiresInDays" class="form-control" ng-model="ExpiresInDays" required>
+            <!-- ngMessages goes here -->
+            <div class="help-block" ng-messages="editCertForm.ExpiresInDays.$error" ng-if="editCertForm.ExpiresInDays.$dirty">
+               <p ng-message="required">ExpiresInDays is required.</p>
+            </div>
+          </div>
+          <!-- Issuer field -->
+          <div class="col-sm-6">
+            <label>Issuer</label>
+            <input type="text" name="Issuer" class="form-control" ng-model="Issuer" required>
+                <!-- ngMessages goes here -->
+            <div class="help-block" ng-messages="editCertForm.Issuer.$error" ng-if="editCertForm.Issuer.$dirty">
+               <p ng-message="required">Issuer is required.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Subject field -->
+        <div class="form-group">
+
+           <label>Subject</label>
+           <textarea type="text" name="Subject" class="form-control" ng-model="Subject" rows="4" required></textarea>
+           <!-- ngMessages goes here -->
+           <div class="help-block" ng-messages="editCertForm.Subject.$error" ng-if="editCertForm.Subject.$dirty">
+              <p ng-message="required">Subject is required.</p>
+           </div>
+           <input type="submit">
+
+
+       </div>
+        <!-- <div class="col-sm-12"><input type="submit" text = "Update"></div> -->
+
+    </form>
+  </div>
+</div>
