@@ -7,6 +7,13 @@ serviceController.getCerts = function (req, res, next) {
   dbconnection
     .authenticate()
     .then(function(err) {
+<<<<<<< HEAD
+=======
+      // console.log('Connection has been established successfully.');
+      // console.log('==========================Request Object =======================================================');
+      // console.log(req);
+      // console.log('================================================================================================');
+>>>>>>> 8c4b6e51d2069fb1a7bbcd5ce6fc34d9948bfd0e
       CertificateList_Model.findAll().then(function(data){
         res.json(data);
       });
