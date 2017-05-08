@@ -24,6 +24,7 @@
       $scope.NotAfter = selectedctrl.NotAfter;
       $scope.Subject = selectedctrl.Subject;
       $scope.Issuer = selectedctrl.Issuer;
+      $scope.Id = selectedctrl.Id;
     }else{
       console.error('selectedctrl is null or empty!');
     }

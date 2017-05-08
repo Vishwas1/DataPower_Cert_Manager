@@ -9,8 +9,7 @@ var dbcon = require('./config/database');
 var routes = require('./routes/index');
 var app = express();
 
-/*Routes*/
-routes(app);
+
 
 /*Jade view egine*/
 // app.set('views', path.join(__dirname, './app/views'));
@@ -25,6 +24,7 @@ app.engine('html',require('ejs').renderFile);
 app.use(express.static(path.join(__dirname, 'public')));
 
 
+
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -32,22 +32,15 @@ app.use(cookieParser());
   // app.listen('3000', function () {
   //   console.log( ("Listening on port 3000").green );
   // });
+
+
+/*Routes*/
+routes(app);
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
-//
-// app.use(function (req, res, next) {
-//   dbcon(function (err, db) {
-//     if (err) return res.send(500, "cannot connect ot database");
-//     req.db = db;
-//     req.models = db.models;
-//     next();
-//   });
-// });
-
-// error handlers
 
 // development error handler
 // will print stacktrace

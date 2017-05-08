@@ -10,6 +10,7 @@
     var selectedCertRowObject = null;
     var defer = $q.defer();
     tblService.getCertList = function(){
+      tableData = [];
       $http.get('/api/cert-list')
           .then(function(response){
             angular.forEach(response.data, function(data){
@@ -45,29 +46,21 @@
         ExpiresInDays : rowObj.ExpiresInDays,
         NotAfter :  rowObj.NotAfter,
         Subject : rowObj.Subject,
-        Issuer : rowObj.Issuer
+        Issuer : rowObj.Issuer,
+        Id : rowObj.Id
       };
     };
 
     tblService.updateCertificate = function(certObj){
       debugger;
       certObj = JSON.stringify(certObj);
-      // var resp = $http.post('/api/cert-list', certObj);
-      // debugger;
-      // $http({ method: "POST", url: '/api/cert-list', data: certObj, cache: false })
-      // .then(function(response){
-      //   defer.resolve("Success");
-      // },function(error){
-      //   defer.reject("Fail");
-      // });
-      // return defer.promise;
       console.log(certObj);
        var config = {
             headers : {
                 "Content-Type": "application/json; charset = utf-8;"
             }
         };
-      $http.get('/api/cert-list', certObj,config)
+      $http.post('/api/cert-list-post', certObj,config)
          .then(function(response) {
              if (typeof response.data === 'object') {
                  defer.resolve(response.data);
