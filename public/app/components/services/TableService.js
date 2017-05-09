@@ -8,8 +8,10 @@
     var tblService = this;
     var tableData = [];
     var selectedCertRowObject = null;
-    var defer = $q.defer();
+
     tblService.getCertList = function(){
+      // debugger;
+      var defer = $q.defer();
       tableData = [];
       $http.get('/api/cert-list')
           .then(function(response){
@@ -52,35 +54,22 @@
     };
 
     tblService.updateCertificate = function(certObj){
-      debugger;
+      // debugger;
+      var defer = $q.defer();
       certObj = JSON.stringify(certObj);
       console.log(certObj);
-       var config = {
-            headers : {
-                "Content-Type": "application/json; charset = utf-8;"
-            }
-        };
-      $http.post('/api/cert-list-post', certObj,config)
-         .then(function(response) {
-             if (typeof response.data === 'object') {
-                 defer.resolve(response.data);
-             } else {
-                 defer.reject(response.data);
-             }
-          })
-          .catch(function(response) {
-             return defer.reject(response.data);
-          });
-
-          return defer.promise;
+      $http({
+          method: 'POST',
+          url: '/api/cert-list-post',
+          data: certObj,
+          headers: {'Content-Type': 'application/json'}
+      }).then(function(response){
+        defer.resolve(response.data);
+      },function(response){
+        defer.reject(response.data);
+      });
+      return defer.promise;
     };
-
-
-
-
-
-
-
   }
 
 })();

@@ -34,25 +34,33 @@
         });
       }
     };
-    tableService.getCertList().then(function(data){
-      // debugger;
-      $scope.certificats = data;
-      $scope.gridOptions.data = $scope.certificats;
-
-      $scope.gridOptions.multiSelect = false;
-      $scope.gridOptions.modifierKeysToMultiSelect = false;
-      $scope.gridOptions.noUnselect = true;
-    });
-
+    UpdateList();
+    var modalInstance =null;
     $scope.openPopup = function (row){
-      debugger;
+      // debugger;
       tableService.setSelectedRowObj(row.entity);
-      var modalInstance = $uibModal.open({
+      modalInstance = $uibModal.open({
       templateUrl: 'app/views/partials/editCertificate.html',
       controller: 'editCertPopupController'
       });
     };
 
+    $scope.$on("ReloadGrid",function(){
+      debugger;
+      modalInstance.close();
+      UpdateList();
+    });
+
+    function UpdateList(){
+      tableService.getCertList().then(function(data){
+        // debugger;
+        $scope.certificats = data;
+        $scope.gridOptions.data = $scope.certificats;
+        $scope.gridOptions.multiSelect = false;
+        $scope.gridOptions.modifierKeysToMultiSelect = false;
+        $scope.gridOptions.noUnselect = true;
+      });
+    }
   }
 
 })();
