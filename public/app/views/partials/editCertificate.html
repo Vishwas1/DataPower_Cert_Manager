@@ -1,10 +1,29 @@
+<style>
+  .md-datepicker-calendar-pane{
+  z-index: 1200}
+</style>
 <div ng-controller="editCertPopupController" style="padding: 5px;">
-  <div><center><h3>Update Certificate </h3></center><hr></div>
-  <div>
+  <div class="col-sm-12">
+    <div class="row" ng-style="statusBackGroundStyle">
+      <div class="col-sm-8" ng-style="headerStyle"><h3>Edit Certificate </h3><span>Status : {{status}}</span></div>
+      <div class="col-sm-4 col-sm-push-2" >
+        <md-button class="md-fab  md-mini" aria-label="FAB" ng-style="buttonStyle" tooltip="Id">
+        {{Id}}  <!-- <md-icon md-svg-src="img/icons/cake.svg"></md-icon> -->
+        </md-button>
+      </div>
+    </div>
+    <div class="row"><hr></div>
+
+    <!-- <div class="col-sm-12"></div> -->
+  </div>
     <form name="editCertForm" novalidate  ng-submit="editCertForm.$valid && updateCertificate()" class="">
         <!-- CryptoObject field -->
         <div class="form-group">
           <div class="col-sm-12">
+            <!-- <md-input-container class="md-block">
+             <label>Crypto Object</label>
+             <textarea ng-model="CryptoObject" name="CryptoObject" md-maxlength="150" rows="4" md-select-on-focus></textarea>
+           </md-input-container> -->
             <label>Crypto Object</label>
             <textarea type="text" name="CryptoObject" class="form-control" ng-model="CryptoObject" rows="4" required></textarea>
             <!-- ngMessages goes here -->
@@ -17,7 +36,8 @@
         <div class="form-group">
             <div class="col-sm-6">
               <label>Not Before</label>
-              <input type="text" name="NotBefore" class="form-control" ng-model="NotBefore" required>
+              <!-- <input type="text" name="NotBefore" class="form-control" ng-model="NotBefore" required> -->
+              <md-datepicker name="NotBefore" ng-model="NotBefore" required></md-datepicker>
               <!-- ngMessages goes here -->
               <div class="help-block" ng-messages="editCertForm.NotBefore.$error" ng-if="editCertForm.NotBefore.$dirty">
                  <p ng-message="required">NotBefore is required.</p>
@@ -26,7 +46,8 @@
 
             <div class="col-sm-6">
               <label>Not After</label>
-              <input type="text" name="NotAfter" class="form-control" ng-model="NotAfter" required>
+              <!-- <input type="text" name="NotAfter" class="form-control" ng-model="NotAfter" required> -->
+              <md-datepicker name="NotAfter" ng-model="NotAfter"  required></md-datepicker>
               <!-- ngMessages goes here -->
               <div class="help-block" ng-messages="editCertForm.NotAfter.$error" ng-if="editCertForm.NotAfter.$dirty">
                  <p ng-message="required">NotAfter is required.</p>
@@ -38,6 +59,10 @@
           <div class="col-sm-6">
             <label>Expires In Days</label>
             <input type="text" name="ExpiresInDays" class="form-control" ng-model="ExpiresInDays" required>
+            <!-- <md-input-container class="md-block" flex-gt-sm>
+              <label>Expires In Days</label>
+              <input name="ExpiresInDays" ng-model="ExpiresInDays" required>
+            </md-input-container> -->
             <!-- ngMessages goes here -->
             <div class="help-block" ng-messages="editCertForm.ExpiresInDays.$error" ng-if="editCertForm.ExpiresInDays.$dirty">
                <p ng-message="required">ExpiresInDays is required.</p>
@@ -47,6 +72,10 @@
           <div class="col-sm-6">
             <label>Issuer</label>
             <input type="text" name="Issuer" class="form-control" ng-model="Issuer" required>
+            <!-- <md-input-container class="md-block" flex-gt-sm>
+              <label>Issuer</label>
+              <input name="Issuer" ng-model="Issuer" required>
+            </md-input-container> -->
                 <!-- ngMessages goes here -->
             <div class="help-block" ng-messages="editCertForm.Issuer.$error" ng-if="editCertForm.Issuer.$dirty">
                <p ng-message="required">Issuer is required.</p>
@@ -58,6 +87,10 @@
           <div class="col-sm-12">
              <label>Subject</label>
              <textarea type="text" name="Subject" class="form-control" ng-model="Subject" rows="4" required></textarea>
+             <!-- <md-input-container class="md-block">
+              <label>Subject</label>
+              <textarea ng-model="Subject" name="Subject" md-maxlength="150" rows="4" md-select-on-focus></textarea>
+            </md-input-container> -->
              <!-- ngMessages goes here -->
              <div class="help-block" ng-messages="editCertForm.Subject.$error" ng-if="editCertForm.Subject.$dirty">
                 <p ng-message="required">Subject is required.</p>
@@ -67,7 +100,8 @@
        </div>
       <div class="form-group row">
         <div class="offset-sm-2 col-sm-10">
-          <input type="submit"class="btn btn-primary" />
+          <!-- <input type="submit"class="btn btn-primary" /> -->
+          <md-button class="md-raised md-primary" type="submit">Save And Finish</md-button>
           <!-- <button type="submit" class="btn btn-primary">Sign in</button> -->
         </div>
       </div>

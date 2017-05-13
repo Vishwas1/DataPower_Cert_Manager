@@ -1,13 +1,10 @@
 var connection = require('../.././config/database');
 var CertificateList_Model = connection.define('dpcertlist',{
-    Id      : {
-      type: Number,
-      primaryKey : true
-    },
+    Id      : { type: Number,primaryKey : true},
 	  CryptoObject : String,
-	  NotBefore  : String,
-	  NotAfter  : String,
-	  ExpiresInDays : String,
+	  NotBefore  : {type: Date , time: false},
+	  NotAfter  : {type: Date , time: false},
+	  ExpiresInDays : Number,
 	  Subject : String,
 	  Issuer : String
   },{

@@ -9,6 +9,7 @@
     ]);
 
   function TableController(tableService , $scope, $uibModal) {
+
     $scope.gridOptions = {
       paginationPageSizes: [10, 50, 100],
       paginationPageSize: 10,
@@ -26,14 +27,17 @@
       { field: 'Subject',displayName : 'Subject',enableHiding: false},
       { field: 'Issuer',displayName : 'Issuer',enableHiding: false}
       ],
+
       onRegisterApi: function (gridApi) {
         $scope.grid1Api = gridApi;
         gridApi.selection.on.rowSelectionChanged($scope,function(row){
-          // debugger;
+            // debugger;
           // var msg = 'row selected ' + row.isSelected;
         });
-      }
+      },
+      rowTemplate : rowTemplate()
     };
+
     UpdateList();
     var modalInstance =null;
     $scope.openPopup = function (row){
@@ -46,10 +50,18 @@
     };
 
     $scope.$on("ReloadGrid",function(){
-      debugger;
+      // debugger;
       modalInstance.close();
       UpdateList();
     });
+
+    $scope.rowDblClick = function( row) {
+      tableService.setSelectedRowObj(row.entity);
+      modalInstance = $uibModal.open({
+      templateUrl: 'app/views/partials/viewCertificate.html',
+      controller: 'viewCertPopupController'
+      });
+    };
 
     function UpdateList(){
       tableService.getCertList().then(function(data){
@@ -61,6 +73,12 @@
         $scope.gridOptions.noUnselect = true;
       });
     }
+    function rowTemplate() {
+        return '<div ng-dblclick="grid.appScope.rowDblClick(row)" >' +
+                    '  <div ng-repeat="(colRenderIndex, col) in colContainer.renderedColumns track by col.colDef.name" class="ui-grid-cell" ng-class="{ \'ui-grid-row-header-cell\': col.isRowHeader }"  ui-grid-cell></div>' +
+                    '</div>';
+    }
+
   }
 
 })();

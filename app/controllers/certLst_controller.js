@@ -8,6 +8,7 @@ serviceController.getCerts = function (req, res, next) {
     .authenticate()
     .then(function(err) {
       CertificateList_Model.findAll().then(function(data){
+        console.log(data);
         res.json(data);
       });
     })

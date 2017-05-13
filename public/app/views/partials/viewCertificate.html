@@ -1,0 +1,53 @@
+<div ng-controller="viewCertPopupController" style="padding: 5px;">
+  <div style="padding-left:10px;"><h3> {{Id}} : View Certificate </h3><hr></div>
+  <div>
+    <form name="editCertForm">
+        <!-- CryptoObject field -->
+        <div class="form-group">
+          <div class="col-sm-12">
+            <label>Crypto Object</label>
+            <textarea type="text" name="CryptoObject" class="form-control" ng-model="CryptoObject" rows="4" required disabled></textarea>
+          </div>
+        </div>
+        <!-- NotBefore,NotAfter field -->
+        <div class="form-group">
+            <div class="col-sm-6">
+              <label>Not Before</label>
+              <input type="text" name="NotBefore" class="form-control" ng-model="NotBefore" required disabled>
+            </div>
+
+            <div class="col-sm-6">
+              <label>Not After</label>
+              <input type="text" name="NotAfter" class="form-control" ng-model="NotAfter" required disabled>
+            </div>
+        </div>
+        <!-- ExpiresInDays,Issuer field -->
+        <div class="form-group">
+          <div class="col-sm-6">
+            <label>Expires In Days</label>
+            <input type="text" name="ExpiresInDays" class="form-control" ng-model="ExpiresInDays" required disabled>
+          </div>
+          <!-- Issuer field -->
+          <div class="col-sm-6">
+            <label>Issuer</label>
+            <input type="text" name="Issuer" class="form-control" ng-model="Issuer" required disabled>
+          </div>
+        </div>
+        <!-- Subject field -->
+        <div class="form-group">
+          <div class="col-sm-12">
+             <label>Subject</label>
+             <textarea type="text" name="Subject" class="form-control" ng-model="Subject" rows="4" required disabled></textarea>
+           </div>
+       </div>
+      <div class="form-group row">
+        <div class="offset-sm-2 col-sm-10">
+
+          <!-- <button type="submit" class="btn btn-primary">Sign in</button> -->
+        </div>
+      </div>
+        <!-- <div class="col-sm-12"><input type="submit" text = "Update"></div> -->
+
+    </form>
+  </div>
+</div>
