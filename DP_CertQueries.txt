@@ -30,16 +30,15 @@ DELIMITER ;
 
 ----------------Calling Stored Proc to insert data into table - Samples---------------------
 
-CALL InsertIntoDpList('247_CSS_TOKEN_FWD_CRYPTO_VAL_CERTIFICATE',
-'2016-11-09','2017-11-09','C=US, ST=Illinois, L=Chicago, O=United Airlines Inc, OU=Technology, CN=css.ual.com','C=US, O=GeoTrust Inc., CN=GeoTrust SHA256 SSL CA');
-CALL InsertIntoDpList('247_MPG_CLIENT_CRYPTO_CERT','2016-08-22','2017-08-22','C=US, ST=Illinois, L=Chicago, O=United Airlines Inc, OU=Technology, CN=apiauth.united.com','C=US, O=GeoTrust Inc., CN=GeoTrust SHA256 SSL CA');
-CALL InsertIntoDpList('cryptoObj 03','2017-05-02','2017-05-15','Subject 03','Issuer 03');
-CALL InsertIntoDpList('cryptoObj 04','2017-04-02','2017-04-10','Subject 04','Issuer 04');
-CALL InsertIntoDpList('cryptoObj 05','2017-05-02','2017-05-30','Subject 05','Issuer 05');
-CALL InsertIntoDpList('cryptoObj 06','2017-05-01','2017-05-15','Subject 06','Issuer 06');
-CALL InsertIntoDpList('cryptoObj 07','2017-05-05','2017-05-15','Subject 07','Issuer 07');
-CALL InsertIntoDpList('cryptoObj 08','2017-03-02','2017-05-15','Subject 08','Issuer 08');
-CALL InsertIntoDpList('cryptoObj 09','2017-02-02','2017-05-20','Subject 09','Issuer 09');
-CALL InsertIntoDpList('cryptoObj 10','2017-02-02','2017-05-16','Subject 10','Issuer 10');
-CALL InsertIntoDpList('cryptoObj 11','2017-05-02','2017-05-13','Subject 11','Issuer 11');
-CALL InsertIntoDpList('cryptoObj 12','2017-05-01','2017-05-11','Subject 12','Issuer 12');
+CALL InsertIntoDpList2('247_CSS_TOKEN_FWD_CRYPTO_VAL_CERTIFICATE','2016-11-09','2017-11-09','C=US, ST=Illinois, L=Chicago, O=United Airlines Inc, OU=Technology, CN=css.ual.com','C=US, O=GeoTrust Inc., CN=GeoTrust SHA256 SSL CA');
+CALL InsertIntoDpList2('247_MPG_CLIENT_CRYPTO_CERT','2016-08-22','2017-08-22','C=US, ST=Illinois, L=Chicago, O=United Airlines Inc, OU=Technology, CN=apiauth.united.com','C=US, O=GeoTrust Inc., CN=GeoTrust SHA256 SSL CA');
+CALL InsertIntoDpList2('cryptoObj 03','2017-05-02','2017-05-15','Subject 03','Issuer 03');
+CALL InsertIntoDpList2('cryptoObj 04','2017-04-02','2017-04-10','Subject 04','Issuer 04');
+CALL InsertIntoDpList2('cryptoObj 05','2017-05-02','2017-05-30','Subject 05','Issuer 05');
+CALL InsertIntoDpList2('cryptoObj 06','2017-05-01','2017-05-15','Subject 06','Issuer 06');
+CALL InsertIntoDpList2('cryptoObj 07','2017-05-05','2017-05-15','Subject 07','Issuer 07');
+CALL InsertIntoDpList2('cryptoObj 08','2017-03-02','2017-05-15','Subject 08','Issuer 08');
+CALL InsertIntoDpList2('cryptoObj 09','2017-02-02','2017-05-20','Subject 09','Issuer 09');
+CALL InsertIntoDpList2('cryptoObj 10','2017-02-02','2017-05-16','Subject 10','Issuer 10');
+CALL InsertIntoDpList2('cryptoObj 11','2017-05-02','2017-05-13','Subject 11','Issuer 11');
+CALL InsertIntoDpList2('cryptoObj 12','2017-05-01','2017-05-11','Subject 12','Issuer 12');
